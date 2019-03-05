@@ -1,6 +1,6 @@
 #
 # This script has been written for the Trickbot sample with sha256 8F590AC32A7C7C0DDFBFA7A70E33EC0EE6EB8D88846DEFBDA6144FADCC23663A
-# Tested with IDA 6.9
+# Tested with IDA 6.9 and IDA 7.1
 #
 
 from idaapi import *
@@ -199,9 +199,9 @@ def setFunctionInformation(funcName, callAddress):
     print "[-] Error: Cannot find tinfo for function name %s" % (funcName)
     return False
 
-  errorCode = idaapi.apply_callee_tinfo(callAddress, tinfo)
+  errorCode = idaapi.apply_callee_tinfo(callAddress, tinfo) #in IDA 6.9 this returns <type 'NoneType'>, in IDA 7.1 it is "True"
   success = idaapi.set_op_tinfo2(callAddress, 0, tinfo)
-  if errorCode != None or not success:
+  if errorCode not in [None, True] or not success:
     print "[-] Error when setting function information for %s at %s" % (callAddress, hex(int(callAddress)))
     return False
   return True

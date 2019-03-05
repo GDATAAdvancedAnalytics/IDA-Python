@@ -1,6 +1,6 @@
 #
 # This script has been written for the Trickbot sample with sha256 8F590AC32A7C7C0DDFBFA7A70E33EC0EE6EB8D88846DEFBDA6144FADCC23663A
-# Tested with IDA 6.9
+# Tested with IDA 6.9 and IDA 7.1
 #
 
 import idautils
