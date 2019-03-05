@@ -143,7 +143,7 @@ def decryptAllReferencesToCryptFunction(cryptFunctionAddress):
         else:
             strFromPtr = getStringFromPointer(offset)
             decryptedString = cryptHelper.decrypt(strFromPtr)
-            setCommentToDecompilation(decryptedString, addr)#XXX TODO
+            setCommentToDecompilation(decryptedString, addr)
             print "[+] Decrypted string at Addr: %s Offset: %s Crypted: %s Decrypted: %s" % (hex(int(addr)), offset, strFromPtr, decryptedString)
 
 if __name__ == "__main__":
