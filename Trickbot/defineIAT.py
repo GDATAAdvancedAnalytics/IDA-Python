@@ -202,7 +202,7 @@ def setFunctionInformation(funcName, callAddress):
   errorCode = idaapi.apply_callee_tinfo(callAddress, tinfo)
   success = idaapi.set_op_tinfo2(callAddress, 0, tinfo)
   if errorCode != None or not success:
-    print "[-] Error when setting function information for %s at %s" % (sym.name, hex(int(callAddress)))
+    print "[-] Error when setting function information for %s at %s" % (callAddress, hex(int(callAddress)))
     return False
   return True
 
